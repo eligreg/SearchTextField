@@ -61,6 +61,7 @@ public class SearchTextField: UITextField {
         indicator.stopAnimating()
     }
     
+    public var userStoppedTypingDelay = 0.8
 
     ////////////////////////////////////////////////////////////////////////
     // Private implementation
@@ -200,7 +201,7 @@ public class SearchTextField: UITextField {
     public func textFieldDidChange() {
         // Detect pauses while typing
         timer?.invalidate()
-        timer = NSTimer.scheduledTimerWithTimeInterval(0.8, target: self, selector: #selector(SearchTextField.typingDidStop), userInfo: self, repeats: false)
+        timer = NSTimer.scheduledTimerWithTimeInterval(userStoppedTypingDelay, target: self, selector: #selector(SearchTextField.typingDidStop), userInfo: self, repeats: false)
         
         if text!.isEmpty {
             clearResults()
