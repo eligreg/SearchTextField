@@ -62,6 +62,11 @@ public class SearchTextField: UITextField {
     }
     
     public var userStoppedTypingDelay = 0.8
+    
+    public func hide() {
+        clearResults()
+        tableView?.reloadData()
+    }
 
     ////////////////////////////////////////////////////////////////////////
     // Private implementation
