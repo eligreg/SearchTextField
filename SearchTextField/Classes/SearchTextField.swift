@@ -21,7 +21,10 @@ open class SearchTextField: UITextField {
     
     /// Indicate if this field has been interacted with yet
     open var interactedWith = false
-
+    
+    /// CUSTOM FORK custom time
+    open var userStoppedTypingDelay = 0.8
+    
     /// Set your custom visual theme, or just choose between pre-defined SearchTextFieldTheme.lightTheme() and SearchTextFieldTheme.darkTheme() themes
     open var theme = SearchTextFieldTheme.lightTheme() {
         didSet {
@@ -242,7 +245,7 @@ open class SearchTextField: UITextField {
     open func textFieldDidChange() {
         // Detect pauses while typing
         timer?.invalidate()
-        timer = Timer.scheduledTimer(timeInterval: 0.8, target: self, selector: #selector(SearchTextField.typingDidStop), userInfo: self, repeats: false)
+        timer = Timer.scheduledTimer(timeInterval: userStoppedTypingDelay, target: self, selector: #selector(SearchTextField.typingDidStop), userInfo: self, repeats: false)
         
         if text!.isEmpty {
             clearResults()
