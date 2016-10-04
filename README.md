@@ -73,6 +73,9 @@ mySearchTextField.theme.cellHeight = 50
 // Set the max number of results. By default it's not limited
 mySearchTextField.maxNumberOfResults = 5
 
+// You can also limit the max height of the results list
+mySearchTextField.maxResultsListHeight = 200
+
 // Customize the way it highlights the search string. By default it bolds the string
 mySearchTextField.highlightAttributes = [NSBackgroundColorAttributeName: UIColor.yellowColor(), NSFontAttributeName:UIFont.boldSystemFontOfSize(12)]
 
@@ -103,6 +106,12 @@ mySearchTextField.userStoppedTypingHandler = {
     }
 }
 ```
+
+## Swift Versions
+
+Install v1.0.0 if you need to support Swift 2.3.
+
+Install v1.0.2 and above if you want to support Swift 3.
 
 
 ## Demo
